@@ -52,7 +52,7 @@ class _ConfirmDialogState extends State<ConfirmDialog> {
                             style: TextStyle(
                                 color: Colors.white, fontSize: kTextSize)),
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pop(context, true);
                         },
                       ),
                     ),

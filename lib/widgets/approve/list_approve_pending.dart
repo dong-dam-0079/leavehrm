@@ -91,7 +91,7 @@ class _ListApprovePendingState extends State<ListApprovePending> {
                                   children: [
                                     const Text('Start',
                                         style: kTextTitleSmallGreyStyle),
-                                    Text(Utils.dateFormat(item.startDay),
+                                    Text(Utils.dateFormatFromString(item.startDay),
                                         style: kTextContentStyleBlack),
                                     Container(
                                       margin: const EdgeInsets.only(top: 20),
@@ -107,7 +107,7 @@ class _ListApprovePendingState extends State<ListApprovePending> {
                                   children: [
                                     const Text('End',
                                         style: TextStyle(color: Colors.grey)),
-                                    Text(Utils.dateFormat(item.endDay),
+                                    Text(Utils.dateFormatFromString(item.endDay),
                                         style: kTextContentStyleBlack),
                                     Container(
                                       margin: const EdgeInsets.only(top: 20),
