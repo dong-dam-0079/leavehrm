@@ -37,6 +37,7 @@ dependencies:
   dio: ^4.0.4
   jiffy: ^5.0.0
   intl: ^0.17.0
+  syncfusion_flutter_gauges: ^19.4.54
 
 dev_dependencies:
   flutter_test:

@@ -28,11 +28,11 @@ class LeaveTypeDialog extends StatelessWidget {
                   const Text('Choose your leave type.',
                       style: kTextTitleSmallGreyStyle),
                   line(),
-                  buildTextButton(context, 'Full Day Leave Work'),
+                  buttonSelectedLeave(context, 'Full Day Leave Work'),
                   line(),
-                  buildTextButton(context, 'Haft Day Leave Work'),
+                  buttonSelectedLeave(context, 'Haft Day Leave Work'),
                   line(),
-                  buildTextButton(context, 'Time block'),
+                  buttonSelectedLeave(context, 'Time block'),
                 ],
               ),
             ),
@@ -42,7 +42,7 @@ class LeaveTypeDialog extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               width: double.infinity,
-              child: buildTextButton(context, 'Cancel'),
+              child: buttonSelectedLeave(context, 'Cancel'),
             )
           ],
         ));
@@ -50,11 +50,9 @@ class LeaveTypeDialog extends StatelessWidget {
 
   Container line() => Container(width: 250, height: 0.2, color: Colors.grey);
 
-  TextButton buildTextButton(BuildContext context, String type) {
+  TextButton buttonSelectedLeave(BuildContext context, String type) {
     return TextButton(
-        onPressed: () {
-          Navigator.pop(context, type);
-        },
+        onPressed: () => Navigator.pop(context, type),
         child: Text(type, style: const TextStyle(color: Colors.blue)));
   }
 }

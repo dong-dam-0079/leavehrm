@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:leavehrm/models/leave_request_response.dart';
 import 'package:leavehrm/services/api_services.dart';
-import 'package:leavehrm/utils/empty_data_widget.dart';
+import 'package:leavehrm/widgets/empty_data_widget.dart';
 import 'package:leavehrm/widgets/leave/list_leave_request.dart';
 
 import '../../utils/constant.dart';
@@ -80,10 +80,10 @@ class _LeaveTabState extends State<LeaveTab> {
                 )
               ],
             ),
-            FutureBuilder<List<Main>>(
+            FutureBuilder<List<LeaveRequest>>(
                 future: isPending
-                    ? ApiServices().fetchLeaveRequest()
-                    : ApiServices().fetchLeaveHistory(),
+                    ? ApiServices().fetchLeaveRequest(ApiServices.apiLeaveRequest)
+                    : ApiServices().fetchLeaveRequest(ApiServices.apiLeaveHistory),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
                     return const EmptyData();

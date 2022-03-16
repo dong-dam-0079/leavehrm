@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:leavehrm/utils/constant.dart';
 
-class ConfirmDialog extends StatefulWidget {
+class ConfirmDialog extends StatelessWidget {
   const ConfirmDialog({Key? key}) : super(key: key);
-
-  @override
-  _ConfirmDialogState createState() => _ConfirmDialogState();
-}
-
-class _ConfirmDialogState extends State<ConfirmDialog> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -41,40 +34,29 @@ class _ConfirmDialogState extends State<ConfirmDialog> {
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      width: double.infinity,
-                      // margin: const EdgeInsets.only(top: 20, bottom: 15),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: kBlueColor),
-                      child: TextButton(
-                        child: const Text("Let's do it",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: kTextSize)),
-                        onPressed: () {
-                          Navigator.pop(context, true);
-                        },
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      margin: const EdgeInsets.only(top: 5),
-                      decoration: BoxDecoration(
-                          color: const Color(-1528108310),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: TextButton(
-                        child: const Text("Do it later",
-                            style: TextStyle(
-                                color: Colors.grey, fontSize: kTextSize)),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
+                    roundedButton(context, "Let's do it"),
+                    roundedButton(context, 'Do it later'),
                   ],
                 ))
               ],
             )),
+      ),
+    );
+  }
+
+  Container roundedButton(BuildContext context, String title) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(top: 5),
+      decoration: BoxDecoration(
+          color: const Color(-1528108310),
+          borderRadius: BorderRadius.circular(20)),
+      child: TextButton(
+        child: Text(title,
+            style: const TextStyle(color: Colors.grey, fontSize: kTextSize)),
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }

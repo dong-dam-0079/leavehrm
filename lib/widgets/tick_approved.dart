@@ -9,7 +9,7 @@ class TickApproved extends StatelessWidget {
     required this.item,
   }) : super(key: key);
 
-  final Main item;
+  final LeaveRequest item;
 
   @override
   Widget build(BuildContext context) {

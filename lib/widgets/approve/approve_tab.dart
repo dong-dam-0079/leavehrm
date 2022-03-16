@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:leavehrm/models/approve_leave_response.dart';
+import 'package:leavehrm/models/leave_request_response.dart';
 import 'package:leavehrm/utils/constant.dart';
-import 'package:leavehrm/utils/empty_data_widget.dart';
+import 'package:leavehrm/widgets/empty_data_widget.dart';
 import 'package:leavehrm/widgets/approve/list_approve_pending.dart';
 
 import '../../services/api_services.dart';
@@ -40,16 +40,7 @@ class _ApproveTabState extends State<ApproveTab> {
                           });
                         }),
                     Visibility(
-                        visible: isPending ? true : false,
-                        child: Container(
-                          width: 60,
-                          height: 5,
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              color: kBlueColor),
-                        ))
+                        visible: isPending ? true : false, child: bottomLine())
                   ],
                 ),
                 Container(
@@ -69,24 +60,17 @@ class _ApproveTabState extends State<ApproveTab> {
                           });
                         }),
                     Visibility(
-                        visible: isPending ? false : true,
-                        child: Container(
-                          width: 80,
-                          height: 5,
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              color: kBlueColor),
-                        ))
+                        visible: isPending ? false : true, child: bottomLine())
                   ],
                 )
               ],
             ),
-            FutureBuilder<List<LeaveRequestForLeader>>(
+            FutureBuilder<List<LeaveRequest>>(
                 future: isPending
-                    ? ApiServices().fetchPendingApproveForLeader()
-                    : ApiServices().fetchApprovedForLeader(),
+                    ? ApiServices().fetchLeaveRequest(
+                        ApiServices.apiPendingLeaveRequestForLeader)
+                    : ApiServices().fetchLeaveRequest(
+                        ApiServices.apiApprovedLeaveRequestForLeader),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
                     return const EmptyData();
@@ -97,5 +81,16 @@ class _ApproveTabState extends State<ApproveTab> {
                 })
           ],
         )));
+  }
+
+  Container bottomLine() {
+    return Container(
+      width: 60,
+      height: 5,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+          color: kBlueColor),
+    );
   }
 }

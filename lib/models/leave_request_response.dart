@@ -7,16 +7,18 @@ class LeaveRequestResponse {
     required this.main,
   });
 
-  List<Main> main;
+  List<LeaveRequest> main;
 
   factory LeaveRequestResponse.fromJson(Map<String, dynamic> json) => LeaveRequestResponse(
-    main: List<Main>.from(json["main"].map((x) => Main.fromJson(x))),
+    main: List<LeaveRequest>.from(json["main"].map((x) => LeaveRequest.fromJson(x))),
   );
 }
 
-class Main {
-  Main({
+class LeaveRequest {
+  LeaveRequest({
     required this.id,
+    this.employeeName,
+    this.department,
     required this.leaveType,
     required this.startDay,
     required this.endDay,
@@ -29,6 +31,8 @@ class Main {
   });
 
   int id;
+  String? employeeName;
+  String? department;
   String leaveType;
   String startDay;
   String endDay;
@@ -40,8 +44,10 @@ class Main {
 
   bool isExpanded = false;
 
-  factory Main.fromJson(Map<String, dynamic> json) => Main(
+  factory LeaveRequest.fromJson(Map<String, dynamic> json) => LeaveRequest(
     id: json["id"],
+    employeeName: json["employeeName"],
+    department: json["department"],
     leaveType: json["leaveType"],
     startDay: json["startDay"],
     endDay: json["endDay"],
