@@ -39,39 +39,40 @@ class _ListApprovePendingState extends State<ListApprovePending> {
                 child: Column(
                   children: [
                     Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 15),
-                        child: Row(
-                          children: [
-                            const Expanded(
-                                child: Icon(Icons.account_circle_rounded)),
-                            Expanded(
-                              flex: 3,
-                              child: Container(
-                                margin: const EdgeInsets.only(left: 10),
-                                child: Text(
-                                  item.employeeName ??= '',
-                                  style: const TextStyle(
-                                      fontSize: kTextBigSize,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 15),
+                      child: Row(
+                        children: [
+                          const Expanded(
+                              child: Icon(Icons.account_circle_rounded)),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              margin: const EdgeInsets.only(left: 10),
+                              child: Text(
+                                item.employeeName ??= '',
+                                style: const TextStyle(
+                                    fontSize: kTextBigSize,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
-                            Expanded(
-                                flex: 2,
-                                child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        item.department ??= '',
-                                        style:
-                                            const TextStyle(color: Colors.grey),
-                                      )
-                                    ]))
-                          ],
-                        )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  item.department ??= '',
+                                  style: const TextStyle(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                     const Divider(
                       height: 2,
                       color: Color(0xffb1b0b0),
@@ -88,11 +89,14 @@ class _ListApprovePendingState extends State<ListApprovePending> {
                         },
                       ),
                     ),
-                    ExpandedLeaveReason(item: item, voidCallback: () {
-                      setState(() {
-                        item.isExpanded = false;
-                      });
-                    },)
+                    ExpandedLeaveReason(
+                      item: item,
+                      voidCallback: () {
+                        setState(() {
+                          item.isExpanded = false;
+                        });
+                      },
+                    )
                   ],
                 ),
               ),

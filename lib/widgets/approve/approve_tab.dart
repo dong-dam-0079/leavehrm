@@ -5,6 +5,7 @@ import 'package:leavehrm/widgets/empty_data_widget.dart';
 import 'package:leavehrm/widgets/approve/list_approve_pending.dart';
 
 import '../../services/api_services.dart';
+import '../bottom_line.dart';
 
 class ApproveTab extends StatefulWidget {
   const ApproveTab({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class _ApproveTabState extends State<ApproveTab> {
                           });
                         }),
                     Visibility(
-                        visible: isPending ? true : false, child: bottomLine())
+                        visible: isPending ? true : false, child: const BottomLine())
                   ],
                 ),
                 Container(
@@ -60,7 +61,7 @@ class _ApproveTabState extends State<ApproveTab> {
                           });
                         }),
                     Visibility(
-                        visible: isPending ? false : true, child: bottomLine())
+                        visible: isPending ? false : true, child: const BottomLine())
                   ],
                 )
               ],
@@ -81,16 +82,5 @@ class _ApproveTabState extends State<ApproveTab> {
                 })
           ],
         )));
-  }
-
-  Container bottomLine() {
-    return Container(
-      width: 60,
-      height: 5,
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-          color: kBlueColor),
-    );
   }
 }

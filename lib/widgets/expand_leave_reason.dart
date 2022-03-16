@@ -32,8 +32,6 @@ class ExpandedLeaveReason extends StatelessWidget {
                   style: kTextContent,
                 )),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
                     child: Container(

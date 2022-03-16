@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -14,7 +13,7 @@ class CircleProgress extends StatelessWidget {
     return Center(
       child: Container(
         padding: const EdgeInsets.only(left: 65, right: 65),
-        child: SfRadialGauge(axes: <RadialAxis>[
+        child: SfRadialGauge(enableLoadingAnimation: true, axes: <RadialAxis>[
           RadialAxis(
             minimum: 0,
             maximum: 100,
@@ -38,23 +37,23 @@ class CircleProgress extends StatelessWidget {
             ],
             annotations: [
               GaugeAnnotation(
-                  widget: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: const [
-                          Text('18', style: kTextTitleStyleBlue),
-                          Text('Days', style: kTextSmallTitleStyleBlue),
-                        ],
-                      ),
-                      const Text('of 23 Days',
-                          style: TextStyle(
-                              color: kBlueColor,
-                              fontSize: kTextSmallSize))
-                    ],
-                  ))
+                widget: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: const [
+                        Text('18', style: kTextTitleStyleBlue),
+                        Text('Days', style: kTextSmallTitleStyleBlue),
+                      ],
+                    ),
+                    const Text('of 23 Days',
+                        style: TextStyle(
+                            color: kBlueColor, fontSize: kTextSmallSize))
+                  ],
+                ),
+              )
             ],
           )
         ]),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:leavehrm/models/leave_request_response.dart';
 import 'package:leavehrm/services/api_services.dart';
+import 'package:leavehrm/widgets/bottom_line.dart';
 import 'package:leavehrm/widgets/empty_data_widget.dart';
 import 'package:leavehrm/widgets/leave/list_leave_request.dart';
 
@@ -41,15 +42,7 @@ class _LeaveTabState extends State<LeaveTab> {
                         }),
                     Visibility(
                         visible: isPending ? true : false,
-                        child: Container(
-                          width: 60,
-                          height: 5,
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              color: kBlueColor),
-                        ))
+                        child: const BottomLine())
                   ],
                 ),
                 Column(
@@ -67,15 +60,7 @@ class _LeaveTabState extends State<LeaveTab> {
                         }),
                     Visibility(
                         visible: isPending ? false : true,
-                        child: Container(
-                          width: 60,
-                          height: 5,
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              color: kBlueColor),
-                        ))
+                        child: const BottomLine())
                   ],
                 )
               ],
